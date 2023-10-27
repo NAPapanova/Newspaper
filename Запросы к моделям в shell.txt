@@ -1,0 +1,37 @@
+Çàïðîñû ê ìîäåëÿì â shell
+
+$ python -m venv venv  
+python manage.py runserver
+python createsuperuser	
+django-admin startproject project
+py manage.py shell
+from news.model import *
+user1 = User.objects.create(username=’Danil’, first_name=’Dan’)
+Author.object.create(authorUser=user1)
+user2 = User.objects.create(username=’Nataly’, first_name=’Nat’)
+Author.object.create(authorUser=user2)
+Category.object.create(name=’studing’)
+Category.object.create(name=’physics’)
+Post.object.create(author= Author.object.get(username=’Danil’), categoryType=NW,title=’ smth title’, text=’smth’)
+Post.object.create(author= Author.object.get(username=’Danil’), categoryType=NW,title=’ smth title(2)’, text=’smth’)
+Post.object.create(author= Author.object.get(username=’Nataly’), categoryType=AR,title=’smth title of article’, text=’smth about studing it’)
+P1 = Post.objects.get(pk=1)
+P2 = Post.objects.get(pk=2)
+P3 = Post.objects.get(pk=3)
+C1 = Category.objects.get(name=’physics’)
+C2 = Category.objects.get(name=’physics’)
+P1.postCategory.add(c1)
+P2.postCategory.add(c1,c2)
+P3.postCategory.add(c2)
+CommentObject.create(commentUser=User.objects.get(username=’Danil’),commentPost=Post.objects.get(pk=1), text=’comment text’)
+Comment.object.create(commentUser=User.objects.get(username=’Danil’),commentPost=Post.objects.get(pk=1), text=’comment text’)
+Post.object.get(pk=1).like()
+Post.object.get(pk=1).like()
+Post.object.get(pk=1).like()
+Post.object.get(pk=1).like()
+Comment.object.get(pk=1).like()
+Author.objects.get(authorUser=User.objects.get(username).update_rating)
+a = Author.objects.get(authorUser=User.objects.get(username=’Danil’))
+a.rating
+
+
